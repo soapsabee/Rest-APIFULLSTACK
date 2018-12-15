@@ -18,6 +18,22 @@ function getAllProducts(req, res) {
 }
 
 
+function getCustomer(req, res) {
+    db.any('select count(order_id),customer_id from order group by customer_id')
+        .then(function (data) {
+            res.status(200)
+                .json({
+                    status: 'success',
+                    data: data,
+                    message: 'Retrieved ALL products'
+                });
+        })
+        .catch(function (error) {
+            console.log('ERROR:', error)
+        })
+}
+
 module.exports = {
-    getAllProducts
+    getAllProducts,
+    getCustomer
 };

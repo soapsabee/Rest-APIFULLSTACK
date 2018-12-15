@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
     });
 
 app.get('/api/products', db.getAllProducts);
-
+app.get('/api/report', db.getCustomer);
 
 
     var port = process.env.PORT || 3000;

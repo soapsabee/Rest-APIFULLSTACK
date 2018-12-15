@@ -19,7 +19,7 @@ function getAllProducts(req, res) {
 
 
 function getCustomer(req, res) {
-    db.any('select count(order_id),customer_id from order group by customer_id')
+    db.any('select count(order_id),customer_id from orders group by customer_id')
         .then(function (data) {
             res.status(200)
                 .json({
